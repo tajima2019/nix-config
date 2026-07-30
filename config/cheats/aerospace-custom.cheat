@@ -1,0 +1,35 @@
+% aerospace, wm, keybinding
+
+# 設定をリロード
+aerospace reload-config
+
+# [Win] 移動 (Focus)
+echo "Alt + h/j/k/l"
+
+# [Win] 位置入れ替え (Move)
+echo "Alt + Shift + h/j/k/l"
+
+# [Win] ワークスペースへ移動
+echo "Alt + 1-9"
+
+# [Win] ウィンドウをワークスペースへ移動
+echo "Alt + Shift + 1-9"
+
+# [Win] フルスクリーン切り替え
+echo "Alt + m"
+
+# [Win] タイル/フローティング切り替え
+echo "Alt + Shift + f"
+
+# [Layout] 横並び/縦並び切り替え
+echo "Alt + /"
+
+# [App] ターミナル起動
+echo "Alt + Enter"
+
+# [Layout] 縮小
+echo "Alt + -"
+
+# [Layout] 拡大
+echo "Alt + Shift + -"
+

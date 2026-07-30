@@ -1,0 +1,111 @@
+# 色の定義 (Tokyo Night風)
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+##### Bar Appearance #####
+
+sketchybar --bar position=top \
+                 height=36  \
+                 blur_radius=30 \
+                 color=$COLOR_BG \
+                 margin=10 \
+                 corner_radius=10 \
+                 border_width=2 \
+                 border_color=$COLOR_BORDER
+
+
+##### Changing Defaults #####
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Bold:17.0"
+  label.font="Hack Nerd Font:Bold:14.0"
+  icon.color=$COLOR_FG
+  label.color=$COLOR_FG
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+sketchybar --default "${default[@]}"
+
+# Left Items
+
+sketchybar --add item logo left \
+           --set logo icon=$ICON_APPLE \
+                      icon.color=$COLOR_ACCENT \
+                      icon.font="Hack Nerd Font:Bold:30.0" \
+                      label.drawing=off \
+                      padding_left=0 \
+                      padding_right=0
+                      
+##### Adding Mission Control Space Indicators #####
+
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --all); do
+    sketchybar --add item space.$sid left \
+        --subscribe space.$sid aerospace_workspace_change \
+        --set space.$sid \
+        label="$sid" \
+        icon.drawing=on \
+        icon.font="Hack Nerd Font:Bold:16.0" \
+        background.drawing=off \
+        label.color=$COLOR_INACTIVE \
+        click_script="aerospace workspace $sid" \
+        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+done
+
+##### Adding Left Items #####
+#
+# sketchybar --add item chevron left \
+#            --set chevron icon= label.drawing=off \
+#            --add item front_app left \
+#            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+#            --subscribe front_app front_app_switched
+
+##### Adding Right Items #####
+
+PILL_CONFIG=(
+  background.drawing=on
+  background.corner_radius=5
+  background.height=26
+  label.color=$COLOR_PILL_TEXT
+  icon.color=$COLOR_PILL_TEXT
+  label.padding_right=8
+  icon.padding_left=8
+)
+
+sketchybar --add item clock right \
+           --set clock update_freq=10 \
+           icon=$ICON_CLOCK \
+           script="$PLUGIN_DIR/clock.sh" \
+           background.color=$COLOR_ORANGE \
+           "${PILL_CONFIG[@]}"
+
+sketchybar --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           background.color=$COLOR_TOKYO_PINK \
+           "${PILL_CONFIG[@]}" \
+           --subscribe volume volume_change \
+
+sketchybar --add item battery right \
+           --set battery update_freq=120 \
+           script="$PLUGIN_DIR/battery.sh" \
+           background.color=$COLOR_GREEN \
+            "${PILL_CONFIG[@]}" \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item wifi right \
+           --set wifi script="$PLUGIN_DIR/wifi.sh" \
+           update_freq=60 \
+           background.color=$COLOR_BLUE \
+           "${PILL_CONFIG[@]}" \
+           --subscribe wifi wifi_change
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update

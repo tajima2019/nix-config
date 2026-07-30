@@ -1,0 +1,56 @@
+# テーマ設定
+theme = Kanagawabones
+# フォントサイズ
+font-size = 10
+
+# コピー & ペースト
+# Cmd + C でコピー
+keybind = super+c=copy_to_clipboard
+
+# Cmd + V でペースト
+keybind = super+v=paste_from_clipboard
+
+# Cmd + Aで全選択
+keybind = super+a=select_all
+
+# フォントサイズ変更
+keybind = ctrl+shift+equal=decrease_font_size:1
+keybind = ctrl+shift+minus=increase_font_size:1
+# フォントサイズリセット
+keybind = ctrl+0=reset_font_size
+
+# フォントスタイル
+font-style-bold = false
+font-style-italic = false
+
+# フォントの太さ
+font-thicken = true
+font-thicken-strength = 1
+
+# 明るい色をより鮮明に
+alpha-blending = linear
+
+# セル幅とセル高
+adjust-cell-width = -1
+adjust-cell-height = 1
+
+# ブロックカーソルに変更 & 点滅無効
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+# 水平方向のパディング
+window-padding-x = 10
+
+# 垂直方向のパディング
+window-padding-y = 10
+
+# 背景透過度の設定
+background-opacity = 0.7
+
+# 前回のウィンドウサイズを記憶しない
+window-save-state = never
+
+# キーバインディングの設定
+config-file = keybindings
+

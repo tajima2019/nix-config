@@ -1,0 +1,22 @@
+# 表示モード
+mode=drun
+
+# 画面上の位置
+location=center
+
+# サイズ
+width = 500
+height = 400
+
+# アイコン表示
+allow_images=true
+
+# 検索のマッチング方法(曖昧検索)
+insensitive=true
+
+# 実行時にターミナルが必要なアプリ用
+term=ghostty
+
+# 入力欄を常に表示
+prompt=Search...
+

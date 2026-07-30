@@ -1,0 +1,49 @@
+/* 全体のウィンドウ */
+window {
+  margin: 0px;
+  border: 2px solid #33ccff;
+  background-color: rgba(30, 30, 46, 0.9);
+  border-radius: 15px;
+  font-family: "JetBrains Mono", "Noto Sans CJK JP", sans-serif;
+  font-size: 16px;
+}
+
+/* 入力エリア(検索バー) */
+#input {
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: #313244;
+  color: #cdd6f4;
+  padding: 10px;
+}
+
+/* 内側のリスト全体 */
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+/* 検索結果の各行 */
+#entry {
+  margin: 2px;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  color: #cdd6f4;
+}
+
+/* 選択されている行 */
+#entry:selected {
+  background-color: #33ccff;
+  color: #1e1e2e;
+  font-weight: bold;
+}
+
+/* アイコン画像 */
+#img {
+  margin-right: 10px;
+  background-color: transparent;
+}

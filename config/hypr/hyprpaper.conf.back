@@ -1,0 +1,8 @@
+preload = /home/kento/Downloads/wallpaper5.png
+
+wallpaper {
+    monitor = 
+    path = /home/kento/Downloads/wallpaper5.png
+}
+
+ipc = on

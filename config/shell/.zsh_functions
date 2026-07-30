@@ -1,0 +1,43 @@
+# typstのテンプレートを使用するための関数
+export-typst-template() {
+  local repo_url="git@github.com:tajima2019/typst-template.git"
+  local dest_dir="${1:-.}"
+
+  if [ ! -d "$dest_dir" ]; then
+    echo "creating directory: $dest_dir"
+    mkdir -p "$dest_dir" || { echo "failed to create $dest_dir"; return 1; }
+  fi
+
+  dest_dir="$(cd "$dest_dir" && pwd)" || { echo "failed to resolve dest_dir"; return 1; }
+
+  local tmp_dir
+  tmp_dir="$(mktemp -d)" || { echo "failed to create temp dir"; return 1; }
+
+  echo "[export-typst-template] cloning $repo_url ..."
+  if ! git clone "$repo_url" "$tmp_dir/repo" > /dev/null 2>&1; then
+    echo "git clone failed"
+    rm -rf "$tmp_dir"
+    return 1
+  fi
+  (
+    cd "$tmp_dir/repo" || exit 1
+    rm -rf .git
+    for f in *; do
+      [ "$f" = "." ] && continue
+      [ "$f" = ".." ] && continue
+
+      if [ -e "$dest_dir/$f" ]; then
+        echo "skip (already exists): $dest_dir/$f"
+        continue
+      fi
+
+      mv "$f" "$dest_dir"/
+    done
+  )
+
+  rm -rf "$tmp_dir"
+
+  echo "[export-typst-template] done."
+  echo "exported template into: $(cd "$dest_dir" && pwd)"
+}
+
