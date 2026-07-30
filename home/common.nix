@@ -66,7 +66,7 @@ in
 
     # store 管理
     "ghostty/config".source = ../config/ghostty/config;
-    "ghossty/keybindings".source = ../config/ghostty/keybindings;
+    "ghostty/keybindings".source = ../config/ghostty/keybindings;
     "sheldon/plugins.toml".source = ../config/sheldon/plugins.toml;
     "fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
   };

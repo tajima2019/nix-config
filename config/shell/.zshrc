@@ -35,7 +35,9 @@ abbr add -f cd='z' > /dev/null 2>&1
 
 command -v brew >/dev/null 2>&1 && export PATH="$(brew --prefix)/bin:$PATH"
 
-# -- claude code --
 export PATH="$HOME/.nix-profile/bin:$PATH"
+export PATH="/run/current-system/sw/bin:$PATH"
+
+# -- claude code --
 export PATH="$HOME/.local/bin:$PATH"
 
