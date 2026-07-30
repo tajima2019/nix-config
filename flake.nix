@@ -18,7 +18,10 @@
       homeConfigurations."${username}@mac" = 
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home/common.nix ];
+          modules = [
+            ./home/common.nix
+            ./home/darwin.nix
+          ];
           extraSpecialArgs = { inherit username; };
         };
     };
