@@ -46,6 +46,7 @@ in
     cava
   ];
 
+  # ~/ に置く設定
   home.file = {
     # 頻繁に編集する / ツールが書き込む
     ".zshrc".source         = link "shell/.zshrc";
@@ -58,6 +59,7 @@ in
     ".hushlogin".source = ../config/.hushlogin;
   };
 
+  # ~/.config に置く設定
   xdg.configFile = {
     # out-of-store: lazy/nvim が lazy-lock.json を書く
     "nvim".source = link "nvim";
@@ -69,6 +71,7 @@ in
     "fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
   };
 
+  # ~/.local/share に置く設定
   xdg.dataFile = {
     "navi/cheats/custom_cheats".source = link "cheats"; # cheat を随時追加
   };
