@@ -37,6 +37,20 @@ in
     nb
     sheldon
     marp-cli
+    pay-respects
+
+    # LSP サーバ
+    gopls
+    lua-language-server
+    typescript-language-server
+    pyright
+    yaml-language-server
+    vscode-langservers-extracted
+
+    # フォーマッタ
+    stylua
+    prettier
+    gotools
 
     # その他
     fastfetch

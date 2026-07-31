@@ -2,18 +2,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-    },
     config = function()
-      -- Mason(インストーラー) の設定
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "lua_ls", "ts_ls", "pyright", "yamlls", "cssls" }, -- 自動で入れたいものを書く
-        automatic_enable = true,
-      })
-
       -- Go言語の個別設定
       vim.lsp.config("gopls", {
         settings = {
@@ -87,7 +76,19 @@ return {
           },
         },
       })
-      vim.lsp.enable("matlab_ls")
+
+      vim.lsp.enable({
+        "gopls",
+        "lua_ls",
+        "ts_ls",
+        "cssls",
+        "pyright",
+        "yamlls",
+      })
+
+      if vim.fn.executable("matlab-language-server") == 1 then
+        vim.lsp.enable("matlab_ls")
+      end
 
       -- キーバインド設定
       vim.api.nvim_create_autocmd("LspAttach", {

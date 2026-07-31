@@ -8,6 +8,7 @@ in
 
   home.packages = with pkgs; [
     pngpaste
+    matlab-language-server
   ];
 
   xdg.configFile = {

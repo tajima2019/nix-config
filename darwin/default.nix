@@ -28,7 +28,6 @@
 
     brews = [
       # nixpkgs に無い
-      "thefuck"
       "cloudflared"
       "node"
       "nvm"
