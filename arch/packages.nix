@@ -10,7 +10,7 @@
     "sddm"
 
     # audio
-    "pipewire" "pipewire-pulse" "wirelumber" "pavucontrol"
+    "pipewire" "pipewire-pulse" "wireplumber" "pavucontrol"
 
     # input method
     "fcitx5-im" "fcitx5-mozc" "fcitx5-configtool"
