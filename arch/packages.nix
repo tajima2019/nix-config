@@ -23,9 +23,6 @@
 
     # languages
     "nodejs" "npm" "go" "python" "python-pip" "python-pynvim" "typst"
-
-    # nixpkgs
-    "thefuck"
   ];
 
   aur = [
