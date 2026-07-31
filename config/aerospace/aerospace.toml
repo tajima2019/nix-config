@@ -2,13 +2,13 @@
 default-root-container-layout = 'tiles'
 
 # Aerospace起動時にSketchyBarも起動する
-after-startup-command = [
-  'exec-and-forget sketchybar'
-]
+# after-startup-command = [
+#   'exec-and-forget sketchybar'
+# ]
 
 # ワークスペースが切り替わったら sketchybar に通知を送る
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    '/run/current-system/sw/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
 # アプリごとに強制的にフローティングにするなどの設定 (例: システム設定など)
