@@ -8,12 +8,6 @@ in
 
   targets.genericLinux.enable = true; # 非NixOS Linux で必須
 
-  home.packages = with pkgs; [
-    wl-clipboard
-    grim
-    slurp
-  ];
-
   xdg.configFile = {
     "hypr".source = link "hypr";
     "waybar".source = link "waybar";

@@ -4,7 +4,7 @@
     "git" "zsh" "unzip" "wget" "less" "tar" "gzip" "base-devel"
 
     # wayland / hyprland
-    "hyprland" "hyprlock" "waybar" "wofi" "awww"
+    "hyprland" "hyprlock" "waybar" "wofi" "awww" "wl-clipboard" "grim" "slurp"
 
     # display manager
     "sddm"
