@@ -18,6 +18,16 @@
   outputs = { nixpkgs, nix-darwin, home-manager, ... }:
     let
       username = "kento";
+
+      mkHome = { system ? "x86_64-linux", modules }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = { inherit username; };
+          inherit modules;
+        };
     in {
       darwinConfigurations."mac" = 
         nix-darwin.lib.darwinSystem {
@@ -40,17 +50,21 @@
           ];
         };
 
-      homeConfigurations."${username}@arch" = 
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = { inherit username; };
+      homeConfigurations = {
+        "${username}@arch" = mkHome {
+          modules = [
+            ./home/common.nix
+            ./home/linux.nix
+            ./home/hyprland.nix
+          ];
+        };
+
+        "${username}@ubuntu" = mkHome {
           modules = [
             ./home/common.nix
             ./home/linux.nix
           ];
         };
+      };
     };
 }
