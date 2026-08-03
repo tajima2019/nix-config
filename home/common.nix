@@ -58,6 +58,7 @@ in
     lolcat
     cmatrix
     cava
+    typst
   ];
 
   # ~/ に置く設定
