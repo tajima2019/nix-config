@@ -78,9 +78,10 @@ in
     # out-of-store: lazy/nvim が lazy-lock.json を書く
     "nvim".source = link "nvim";
 
+    "ghostty/config".source = link "ghostty/config";
+    "ghostty/keybindings".source = link "ghostty/keybindings";
+
     # store 管理
-    "ghostty/config".source = ../config/ghostty/config;
-    "ghostty/keybindings".source = ../config/ghostty/keybindings;
     "sheldon/plugins.toml".source = ../config/sheldon/plugins.toml;
     "fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
   };

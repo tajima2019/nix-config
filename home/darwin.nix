@@ -16,6 +16,7 @@ in
 
     # store 管理
     "aerospace/aerospace.toml".source = ../config/aerospace/aerospace.toml;
-    "ghostty/local".source            = ../config/ghostty/local_mac;
+
+    "ghostty/local".source            = link "ghostty/local_mac";
   };
 }
