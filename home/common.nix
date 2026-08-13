@@ -31,6 +31,7 @@ in
     delta
     neovim
     tree-sitter
+    uv
     
     # ツール
     navi
@@ -58,6 +59,7 @@ in
     lolcat
     cmatrix
     cava
+    typst
   ];
 
   # ~/ に置く設定
