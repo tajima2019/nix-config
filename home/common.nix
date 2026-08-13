@@ -31,6 +31,7 @@ in
     delta
     neovim
     tree-sitter
+    uv
     
     # ツール
     navi
