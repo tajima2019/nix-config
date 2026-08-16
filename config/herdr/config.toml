@@ -1,0 +1,49 @@
+onboarding = false
+
+[theme]
+name = "kanagawa"
+
+[update]
+version_check = false # nix 管理なので herdr update は不要
+manifest_check = true # エージェント検出の定義更新は受け取る
+
+[ui]
+agent_panel_sort = "priority"
+prompt_new_workspace_name = true
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude", "codex"]
+
+[keys]
+prefix = "ctrl+a"
+
+detach = "prefix+q"
+new_workspace = "prefix+shift+n"
+new_worktree = "prefix+shift+g"
+
+new_tab = "prefix+c"
+switch_tab = "prefix+1..9"
+split_vertical = "prefix+v"
+split_horizontal = "prefix+minus"
+
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+copy_mode = "prefix+shift+space"
+swap_pane_left = "prefix+shift+h" # ペインの入れ替え
+
+zoom = "prefix+z"
+toggle_sidebar = "prefix+b"
+edit_scrollback = "prefix+e"
+reload_config = "prefix+shift+r"
+
+next_workspace = "prefix+>"
+previous_workspace = "prefix+<"
+

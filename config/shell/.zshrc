@@ -5,6 +5,8 @@ figlet -c "Hello Kento" | lolcat
 fastfetch
 
 # -- パス設定 --
+# nix-darwin の /etc/zprofile には path_helper が無く、/etc/paths.d/homebrew が読まれない
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/go/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
@@ -32,8 +34,6 @@ fi
 abbr add -f vim='nvim' > /dev/null 2>&1
 abbr add -f vi='nvim' > /dev/null 2>&1
 abbr add -f cd='z' > /dev/null 2>&1
-
-command -v brew >/dev/null 2>&1 && export PATH="$(brew --prefix)/bin:$PATH"
 
 export PATH="$HOME/.nix-profile/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"

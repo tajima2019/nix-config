@@ -39,6 +39,7 @@ in
     sheldon
     marp-cli
     pay-respects
+    herdr
 
     # LSP サーバ
     gopls
@@ -86,6 +87,8 @@ in
     # store 管理
     "sheldon/plugins.toml".source = ../config/sheldon/plugins.toml;
     "fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
+
+    "herdr/config.toml".source = link "herdr/config.toml";
   };
 
   # ~/.local/share に置く設定
