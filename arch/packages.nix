@@ -21,6 +21,9 @@
     # gui
     "ghostty" "imv"
 
+    # container
+    "docker" "docker-compose"
+
     # languages
     "nodejs" "npm" "go" "python" "python-pip" "python-pynvim" "typst"
   ];

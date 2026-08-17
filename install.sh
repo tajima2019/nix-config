@@ -87,6 +87,12 @@ Linux)
       echo "Unsupported distro: ${ID:-unknown}"; exit 1 ;;
   esac
 
+  echo "==> docker"
+  if command -v docker > /dev/null 2>&1; then
+    sudo systemctl enable --now docker
+    sudo usermod -aG docker "$(whoami)"
+  fi
+
   echo "==> default shell"
   ZSH_PATH="$(command -v zsh)"
   [ "${SHELL:-}" = "$ZSH_PATH" ] || chsh -s "$ZSH_PATH"
