@@ -8,6 +8,7 @@ in
   home.stateVersion = "26.11";
 
   programs.home-manager.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     # 検索・ファイル操作
@@ -41,6 +42,7 @@ in
     marp-cli
     pay-respects
     herdr
+    claude-code
 
     # LSP サーバ
     gopls
