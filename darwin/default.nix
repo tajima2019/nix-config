@@ -29,7 +29,6 @@
     brews = [
       # nixpkgs に無い
       "cloudflared"
-      "node"
       "nvm"
       "pnpm"
     ];
@@ -43,7 +42,7 @@
       "keycastr"
 
       # ブラウザ・コミュニケーション
-      "zen"
+      # "zen"
       "slack"
       "discord"
       "notion"
