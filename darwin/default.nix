@@ -42,7 +42,7 @@
       "keycastr"
 
       # ブラウザ・コミュニケーション
-      # "zen"
+      "zen"
       "slack"
       "discord"
       "notion"
