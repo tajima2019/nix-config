@@ -32,6 +32,7 @@ in
     neovim
     tree-sitter
     uv
+    nodejs_22
     
     # ツール
     navi

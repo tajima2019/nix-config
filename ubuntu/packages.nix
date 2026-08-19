@@ -6,7 +6,11 @@
     "build-essential"
 
     # container
-    "docker.io"
-    "docker-compose"
+    "docker-ce"
+    "docker-ce-cli"
+    "containerd.io"
+    "docker-compose-plugin"
+    "docker-buildx-plugin"
+    "docker-ce"
   ];
 }
