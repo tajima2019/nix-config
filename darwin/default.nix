@@ -51,6 +51,9 @@
       "visual-studio-code"
       "docker-desktop"
 
+      # 入力
+      "google-japanese-ime"
+
       # 文書
       "mactex"
       "latexit"
@@ -59,6 +62,7 @@
       # フォント・シンボル
       "sf-symbols"
       "font-hack-nerd-font"
+      "font-sketchybar-app-font"   # sketchybar 用アプリロゴフォント
       "font-sf-pro"
       "font-sf-mono"
     ];

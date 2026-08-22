@@ -28,6 +28,18 @@ run = 'move-node-to-workspace N'
 if.app-id = 'us.zoom.xos'
 run = 'move-node-to-workspace Z'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace F'
+
+
+# ==============================
+# ワークスペースとモニターの割り当て
+# ==============================
+# 外部モニターはワークスペース 10 (alt-0) に固定する
+[workspace-to-monitor-force-assignment]
+10 = ['VG258', 'Studio Display', 'secondary']
+
 # ==============================
 # 見た目 (Gaps)
 # ==============================
@@ -58,7 +70,7 @@ alt-comma = 'layout accordion horizontal vertical'
 alt-m = 'fullscreen'
 
 # Alt + Shift + f で「フローティング」と「タイル」を切り替え
-alt-shift-f = 'layout floating tiling'
+alt-shift-t = 'layout floating tiling'
 
 # --- フォーカス移動 (Vimキー) ---
 alt-h = 'focus left'
@@ -86,6 +98,7 @@ alt-0 = 'workspace 10'
 alt-s = 'workspace S'  # Slack用ワークスペース
 alt-n = 'workspace N'  # Notion用ワークスペース
 alt-z = 'workspace Z'  # Zoom用ワークスペース
+alt-f = 'workspace F'  # finder用ワークスペース
 
 # --- ワークスペースへウィンドウを飛ばす ---
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -101,6 +114,7 @@ alt-shift-0 = 'move-node-to-workspace 10'
 alt-shift-s = 'move-node-to-workspace S'  # Slack用ワークスペース
 alt-shift-n = 'move-node-to-workspace N'  # Notion用ワークスペース
 alt-shift-z = 'move-node-to-workspace Z'  # Zoom用ワークスペース
+alt-shift-f = 'move-node-to-workspace F'  # finder用ワークスペース
 
 # 設定リロード 
 alt-shift-c = 'reload-config'
