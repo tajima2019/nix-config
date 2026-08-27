@@ -44,6 +44,9 @@ in
     herdr
     claude-code
 
+    # クラウド
+    awscli2
+
     # LSP サーバ
     gopls
     lua-language-server
