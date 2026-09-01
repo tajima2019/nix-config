@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return
 
 # -- 起動時の表示 --
-figlet -c "Hello Kento" | lolcat 
+figlet -c "Hello!" | lolcat 
 fastfetch
 
 # -- パス設定 --

@@ -22,8 +22,8 @@ home-manager をまとめて適用する。
 | | |
 |---|---|
 | macOS | `sudo darwin-rebuild switch --flake ~/nix-config#mac` |
-| Arch | `home-manager switch --flake ~/nix-config#kento@arch` |
-| Ubuntu | `home-manager switch --flake ~/nix-config#kento@ubuntu` |
+| Arch | `home-manager switch --flake ~/nix-config#$(whoami)@arch` |
+| Ubuntu | `home-manager switch --flake ~/nix-config#$(whoami)@ubuntu` |
 | 更新 | `nix flake update` → 上記を実行 |
 | 巻き戻し | macOS: `--rollback` / Linux: `home-manager generations` |
 | お試し | `nix shell nixpkgs#<pkg>`（インストールせず実行） |
@@ -35,7 +35,8 @@ home-manager をまとめて適用する。
 
 | | |
 |---|---|
-| `flake.nix` | 構成の入口。`mac` / `kento@arch` / `kento@ubuntu` |
+| `flake.nix` | 構成の入口。`mac` / `<user>@arch` / `<user>@ubuntu` |
+| `user.nix` | ユーザー名。別マシン / フォークではここだけ書き換える |
 | `home/common.nix` | **両OS共通**のパッケージと dotfiles 配置 |
 | `home/darwin.nix` | macOS 固有 |
 | `home/linux.nix` | Linux 共通 |
@@ -67,6 +68,6 @@ ubuntu = common + linux
 ## Notes
 
 - `git add` していないファイルは flake から見えない。新規ファイルを作ったら必ず `git add`
-- `nix eval .#homeConfigurations."kento@arch".activationPackage.drvPath` で、
+- `nix eval .#homeConfigurations."$(whoami)@arch".activationPackage.drvPath` で、
   適用せずに設定の記述ミスを検出できる
 - nixpkgs に無い / broken: `thefuck`, `tty-clock`, `zen`, darwin の `ghostty`

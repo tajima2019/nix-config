@@ -1,4 +1,4 @@
-% rg, kento
+% rg, custom
 
 # 基本検索
 rg "<pattern>"

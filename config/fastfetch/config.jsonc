@@ -4,9 +4,9 @@
   "logo": {
     "type": "kitty",
     "source": "~/dotfiles/fastfetch/pepe1.png",
-    "width": 40,
+    "width": 20,
     "padding": {
-      "top": 2,
+      "top": 0,
       "left": 2
     }
   },
@@ -18,15 +18,15 @@
     "host",
     "kernel",
 //  "uptime",
-    "packages",
+    // "packages",
     "shell",
-    "display",
+    // "display",
     "de",
-    "wm",
+    // "wm",
 //  "wmtheme",
 //  "theme",
     "icons",
-    "font",
+    // "font",
 //  "cursor",
     "terminal",
     "terminalfont",
@@ -34,12 +34,12 @@
     "gpu",
     "memory",
     "swap",
-    "disk",
+    // "disk",
     "localip",
-    "battery",
+    // "battery",
     "poweradapter",
 //   "locale",
-    "break",
-    "colors"
+    "break"
+    // "colors"
   ]
 }

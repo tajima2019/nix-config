@@ -43,6 +43,7 @@ in
     pay-respects
     herdr
     claude-code
+    qwen-code
 
     # クラウド
     awscli2

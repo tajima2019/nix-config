@@ -1,9 +1,9 @@
-% fzf, kento
+% fzf, custom
 
 # ファイルを選ぶ
 fd . | fzf
 
-% fzf, fd, kento
+% fzf, fd, custom
 # プレビュー付きで選ぶ
 fd . | fzf --preview 'bat --style=numbers --color=always {}'
 
@@ -14,7 +14,7 @@ nvim $(fd . | fzf)
 rg -n "<pattern>" | fzf | awk -F: '{print "+"$2, $1}' | xargs nvim
 $ pattern: search pattern
 
-% fzf, git, kento
+% fzf, git, custom
 
 # ブランチを選んで checkout 
 git branch --format='%(refname:short)' | fzf | xargs git checkout

@@ -17,7 +17,7 @@
 
   outputs = { nixpkgs, nix-darwin, home-manager, ... }:
     let
-      username = "kento";
+      inherit (import ./user.nix) username;
 
       mkHome = { system ? "x86_64-linux", modules }:
         home-manager.lib.homeManagerConfiguration {
