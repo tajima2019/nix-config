@@ -78,7 +78,10 @@ in
     ".zsh_plugins".source   = link "shell/.zsh_plugins";
     ".zsh_functions".source = link "shell/.zsh_functions";
     ".nbrc".source          = link "nb/.nbrc";
-    
+
+    # out-of-store: Claude Code 自身が /model や plugin 有効化で書き換える
+    ".claude/settings.json".source = link "claude/settings.json";
+
     # 安定していて書き込まれない
     ".hushlogin".source = ../config/.hushlogin;
   };
