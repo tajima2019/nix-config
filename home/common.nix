@@ -97,6 +97,7 @@ in
     # store 管理
     "sheldon/plugins.toml".source = ../config/sheldon/plugins.toml;
     "fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
+    "fastfetch/pepe1.png".source = ../config/fastfetch/pepe1.png;
 
     "herdr/config.toml".source = link "herdr/config.toml";
   };

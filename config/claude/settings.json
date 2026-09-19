@@ -1,11 +1,5 @@
 {
-  "model": "opus",
-  "language": "japanese",
-  "editorMode": "vim",
-  "vimInsertModeRemaps": {
-    "jk": "<Esc>"
-  },
-  "preferredNotifChannel": "ghostty",
+  "model": "sonnet",
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -19,5 +13,11 @@
       }
     }
   },
-  "tui": "fullscreen"
+  "language": "japanese",
+  "tui": "fullscreen",
+  "editorMode": "vim",
+  "vimInsertModeRemaps": {
+    "jk": "<Esc>"
+  },
+  "preferredNotifChannel": "ghostty"
 }

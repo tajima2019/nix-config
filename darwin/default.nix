@@ -72,6 +72,15 @@
   services.sketchybar.enable = true;
   launchd.user.agents.sketchybar.path = [ "/opt/homebrew/bin" ];
 
+  # aerospace をログイン時に自動起動する
+  launchd.user.agents.aerospace = {
+    serviceConfig = {
+      ProgramArguments = [ "/usr/bin/open" "-a" "AeroSpace" ];
+      RunAtLoad = true;
+      KeepAlive = false;
+    };
+  };
+
   # macOS システム設定
   system.defaults = {
     NSGlobalDomain = {

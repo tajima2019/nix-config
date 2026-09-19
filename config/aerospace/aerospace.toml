@@ -1,10 +1,12 @@
 # 起動時に自動でタイル表示にする
 default-root-container-layout = 'tiles'
 
-# Aerospace起動時にSketchyBarも起動する
-# after-startup-command = [
-#   'exec-and-forget sketchybar'
-# ]
+# Aerospace起動完了後にSketchyBarの設定を再読込する
+# (sketchybarがログイン時にaerospaceより先に起動し、
+#  ワークスペース一覧の取得に失敗して番号が表示されなくなる問題への対策)
+after-startup-command = [
+  'exec-and-forget /run/current-system/sw/bin/sketchybar --reload'
+]
 
 # ワークスペースが切り替わったら sketchybar に通知を送る
 exec-on-workspace-change = ['/bin/bash', '-c',
@@ -116,7 +118,10 @@ alt-shift-n = 'move-node-to-workspace N'  # Notion用ワークスペース
 alt-shift-z = 'move-node-to-workspace Z'  # Zoom用ワークスペース
 alt-shift-f = 'move-node-to-workspace F'  # finder用ワークスペース
 
-# 設定リロード 
+# 現在のワークスペースとワークスペース10の中身を入れ替える
+alt-shift-x = 'exec-and-forget $HOME/.config/aerospace/scripts/swap-workspace.sh 10'
+
+# 設定リロード
 alt-shift-c = 'reload-config'
 
 # ウィンドウサイズ変更

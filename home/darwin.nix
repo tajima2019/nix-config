@@ -14,6 +14,9 @@ in
   xdg.configFile = {
     "sketchybar".source = link "sketchybar";
 
+    # out-of-store: aerospace から実行するスクリプト
+    "aerospace/scripts".source = link "aerospace/scripts";
+
     # store 管理
     "aerospace/aerospace.toml".source = ../config/aerospace/aerospace.toml;
 
