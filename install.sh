@@ -89,8 +89,9 @@ Linux)
 
   echo "==> docker"
   if command -v docker > /dev/null 2>&1; then
-    sudo systemctl enable --now docker
     sudo usermod -aG docker "$(whoami)"
+    sudo systemctl enable docker
+    sudo systemctl start docker || echo "WARN: docker.service failed to start (may need a reboot, e.g. after a kernel update). Check: systemctl status docker"
   fi
 
   echo "==> default shell"

@@ -68,6 +68,7 @@ in
     cmatrix
     cava
     typst
+    drawio
   ];
 
   # ~/ に置く設定
