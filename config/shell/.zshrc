@@ -31,9 +31,11 @@ if [ -f ~/.zsh_plugins ]; then
 fi
 
 # -- エイリアス設定 --
-abbr add -f vim='nvim' > /dev/null 2>&1
-abbr add -f vi='nvim' > /dev/null 2>&1
-abbr add -f cd='z' > /dev/null 2>&1
+abbr add -S -f vim='nvim' > /dev/null 2>&1
+abbr add -S -f vi='nvim' > /dev/null 2>&1
+abbr add -S -f cd='z' > /dev/null 2>&1
+abbr add -S -f cc='claude' > /dev/null 2>&1
+abbr add -S -f lg='lazygit' > /dev/null 2>&1
 
 export PATH="$HOME/.nix-profile/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"
