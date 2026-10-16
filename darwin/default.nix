@@ -50,6 +50,7 @@
       # 開発
       "visual-studio-code"
       "docker-desktop"
+      "kicad"
 
       # 入力
       "google-japanese-ime"

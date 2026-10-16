@@ -55,6 +55,7 @@ in
     pyright
     yaml-language-server
     vscode-langservers-extracted
+    nil
 
     # フォーマッタ
     stylua
