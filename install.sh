@@ -91,6 +91,25 @@ Linux)
       sudo apt-get update
       sudo apt-get install -y "${APT_PKGS[@]}"
 
+      echo "==> ghostty (mkasberg/ghostty-ubuntu)"
+      if ! command -v ghostty > /dev/null 2>&1; then
+        deb_url=$(curl -fsSL https://api.github.com/repos/mkasberg/ghostty-ubuntu/releases/latest |
+          grep -o "https://[^\"]*$(dpkg --print-architecture)_${VERSION_ID}\.deb" | head -n1 || true)
+        if [ -n "$deb_url" ]; then
+          tmp=$(mktemp -d)
+          curl -fsSL "$deb_url" -o "$tmp/ghostty.deb"
+          sudo apt-get install -y "$tmp/ghostty.deb"
+          rm -rf "$tmp"
+        else
+          echo "WARN: ${ID} ${VERSION_ID} 向けの ghostty .deb が見つかりませんでした"
+        fi
+      fi
+
+      echo "==> zen browser (flatpak)"
+      sudo apt-get install -y flatpak
+      sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      sudo flatpak install -y --noninteractive flathub app.zen_browser.zen
+
       HM_TARGET="ubuntu"
       ;;
     *)
@@ -106,7 +125,11 @@ Linux)
 
   echo "==> default shell"
   ZSH_PATH="$(command -v zsh)"
-  [ "${SHELL:-}" = "$ZSH_PATH" ] || chsh -s "$ZSH_PATH"
+  grep -qx "$ZSH_PATH" /etc/shells || echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+  [ "$(getent passwd "$(whoami)" | cut -d: -f7)" = "$ZSH_PATH" ] || {
+    sudo chsh -s "$ZSH_PATH" "$(whoami)"
+    echo "NOTE: default shell を変更しました。再ログインで反映されます"
+  }
 
   echo "==> home-manager"
   if command -v home-manager > /dev/null 2>&1; then
