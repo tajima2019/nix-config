@@ -11,6 +11,5 @@
     "containerd.io"
     "docker-compose-plugin"
     "docker-buildx-plugin"
-    "docker-ce"
   ];
 }

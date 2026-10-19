@@ -72,6 +72,16 @@ Linux)
 
     ubuntu|debian)
       echo "==> Ubuntu/Debian: system layer (apt)"
+      echo "==> Docker apt repository"
+      if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL "https://download.docker.com/linux/${ID}/gpg" -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+        echo \
+          "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" |
+          sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+      fi
+
       read -ra APT_PKGS <<< "$(nix eval --raw -f ubuntu/packages.nix --apply 'p: builtins.concatStringsSep " " p.apt')"
 
       [ ${#APT_PKGS[@]} -gt 0 ] || {
