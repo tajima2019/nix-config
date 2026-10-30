@@ -47,6 +47,8 @@ in
 
     # クラウド
     awscli2
+    google-cloud-sdk
+    terraform
 
     # LSP サーバ
     gopls
