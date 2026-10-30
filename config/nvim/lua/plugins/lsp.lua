@@ -17,8 +17,42 @@ return {
 				},
 			})
 
-			-- 自動有効化から外すサーバー名
-			local exclude = {}
+			-- yaml用の設定(CloudFormationの短縮構文タグを認識させる)
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						customTags = {
+							"!Ref scalar",
+							"!Sub scalar",
+							"!GetAtt scalar",
+							"!GetAZs scalar",
+							"!ImportValue scalar",
+							"!Join sequence",
+							"!Select sequence",
+							"!Split sequence",
+							"!FindInMap sequence",
+							"!Base64 scalar",
+							"!Cidr sequence",
+							"!Condition scalar",
+							"!If sequence",
+							"!Not sequence",
+							"!Equals sequence",
+							"!And sequence",
+							"!Or sequence",
+						},
+					},
+				},
+			})
+
+			-- 自動有効化から外すサーバー名(nvim-lspconfigの非推奨エイリアス。
+			-- 新名と同じ cmd を持つため、入れておくと二重に有効化されてしまう)
+			local exclude = {
+				"pony_language_server", -- -> pony_lsp
+				"ruff_lsp", -- -> ruff
+				"systemd_ls", -- -> systemd_lsp
+				"vscoqtop", -- -> vsrocq
+				"volar", -- -> vue_ls
+			}
 
 			-- nvim-lspconfigに含まれるサーバーを候補にする
 			local function candidates()
