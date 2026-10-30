@@ -1,5 +1,9 @@
 [[ $- != *i* ]] && return
 
+# -- nix (zsh は /etc/profile.d を読まないのでここで通す) --
+[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ] && . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+[ -d "$HOME/.nix-profile/bin" ] && export PATH="$HOME/.nix-profile/bin:$PATH"
+
 # -- 起動時の表示 --
 figlet -c "Hello!" | lolcat 
 fastfetch

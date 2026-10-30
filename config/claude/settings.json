@@ -3,13 +3,28 @@
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "academic-research-skills@academic-research-skills": true
+    "academic-research-skills@academic-research-skills": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "yomiyasu@yomiyasu": true,
+    "slidev@cc-rhuss-marketplace": true
   },
   "extraKnownMarketplaces": {
     "academic-research-skills": {
       "source": {
         "source": "github",
         "repo": "Imbad0202/academic-research-skills"
+      }
+    },
+    "yomiyasu": {
+      "source": {
+        "source": "github",
+        "repo": "nanaism/yomiyasu"
+      }
+    },
+    "cc-rhuss-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "rhuss/cc-rhuss-marketplace"
       }
     }
   },
@@ -19,5 +34,34 @@
   "vimInsertModeRemaps": {
     "jk": "<Esc>"
   },
-  "preferredNotifChannel": "ghostty"
+  "preferredNotifChannel": "ghostty",
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Unknown — no git remote configured for this repo; assume private",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: Unknown — no remote configured, default branch unset (origin/HEAD unset)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: The trusted repo (/Users/kento/Business) only — no remote is configured (no additional orgs configured)",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: plan/, rnd/, assumptions.md, knowledge/, references/ (incl. papers/, notes/), source/ and source/extracted/ hold business-plan facts, R&D technical claims, and paper summaries intended for specific external audiences (investors/reviewers/grant bodies) defined per-file in audiences/*.md; references/papers/ PDFs are explicitly not to be published or committed to git; share only with the audience named in the matching audiences/ file",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: business/R&D plan authoring and review for the /Users/kento/Business project (writing, researching, and reviewing plan/, rnd/, slides, and supporting docs) — no software development detected in this repo",
+      "**Trusted repo**: /Users/kento/Business (no remote configured — local-only working directory)",
+      "**Org-specific CLIs**: None configured — project uses pnpm (Slidev, in slides/), nix develop, marp, typst per CLAUDE.md/skills docs, but these are project tooling, not org-specific services",
+      "routine under /Users/kento/Business/ prefix: editing knowledge/, references/, audiences/, reviews/, and slides/ content; source/ and source/extracted/ are read-only/append-only per project rules (source/ must never be edited)"
+    ]
+  }
 }
