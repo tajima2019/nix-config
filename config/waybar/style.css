@@ -1,99 +1,184 @@
+/* Catppuccin Mocha / GORGEOUS edition
+ * グラデーション + グロー + 色付きチップで華やかに */
+
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color overlay0  #6c7086;
+@define-color text      #cdd6f4;
+@define-color subtext   #a6adc8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color blue      #89b4fa;
+@define-color sapphire  #74c7ec;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color red       #f38ba8;
+
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK JP", sans-serif;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(30, 30, 46, 0.8);
-  color: #cdd6f4;
+  background: transparent;
+  color: @text;
 }
 
+tooltip {
+  background: alpha(@mantle, 0.96);
+  border: 1px solid @mauve;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 2px 4px;
+}
+
+/* ---------- 島: 紫がかったグラデーション + 光る枠線 ---------- */
+#left,
+#right,
+#clock {
+  background: linear-gradient(to right, alpha(@crust, 0.94), alpha(@base, 0.92));
+  border: 1px solid alpha(@mauve, 0.45);
+  border-radius: 16px;
+  padding: 0 6px;
+}
+
+/* ---------- 中央: 時計をグラデーションのピルに ---------- */
+#clock {
+  background: linear-gradient(to right, @mauve, @pink);
+  border: 1px solid alpha(@pink, 0.9);
+  color: @crust;
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+/* 島の中のモジュールは基本透明 */
+#custom-launcher,
 #workspaces,
-#clock,
-#battery,
-#network,
-#pulseaudio,
-#bluetooth,
+#window,
 #tray {
-  background-color: #313244;
-  padding: 0 12px;
-  margin: 4px 2px;
-  border-radius: 10px;
-  color: #ffffff;
+  background: transparent;
+  margin: 0;
+}
+
+/* ---------- 左 ---------- */
+#custom-launcher {
+  background: linear-gradient(to right, @mauve, @blue);
+  color: @crust;
+  font-size: 18px;
+  border-radius: 12px;
+  margin: 4px 6px 4px 2px;
+  padding: 0 12px 0 10px;
+}
+
+#workspaces {
+  padding: 0 2px;
 }
 
 #workspaces button {
-  color: #a6adc8;
-  background-color: #313244;
-}
-
-#workspaces button.active {
-  background-color: #89b4fa;
-  color: #1e1e2e;
+  padding: 0 11px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  color: @overlay0;
+  background: transparent;
+  transition: all 0.25s ease;
 }
 
 #workspaces button:hover {
-  background-color: #45475a;
+  background: alpha(@mauve, 0.2);
+  color: @text;
 }
 
-#clock {
-  background-color: #f38ba8;
-  color: #1e1e2e;
+/* アクティブ: グラデーション + グロー */
+#workspaces button.active {
+  background: linear-gradient(to right, @mauve, @blue);
+  color: @crust;
   font-weight: bold;
+  box-shadow: 0 0 10px alpha(@mauve, 0.75);
 }
 
+#workspaces button.urgent {
+  background: @red;
+  color: @crust;
+}
+
+#window {
+  color: @subtext;
+  font-style: italic;
+  padding: 0 14px 0 10px;
+}
+
+/* ---------- 右: 色付きチップ ---------- */
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#bluetooth,
 #battery {
-  background-color: #a6e3a1;
-  color: #1e1e2e;
+  margin: 4px 3px;
+  padding: 0 11px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+#cpu        { color: @teal;   background: alpha(@teal, 0.14); }
+#memory     { color: @sapphire; background: alpha(@sapphire, 0.14); }
+#pulseaudio { color: @peach;  background: alpha(@peach, 0.14); }
+#network    { color: @blue;   background: alpha(@blue, 0.14); }
+#bluetooth  { color: @mauve;  background: alpha(@mauve, 0.14); }
+#battery    { color: @green;  background: alpha(@green, 0.14); }
+
+/* ホバーで光らせる */
+#cpu:hover        { background: alpha(@teal, 0.3);     box-shadow: 0 0 8px alpha(@teal, 0.6); }
+#memory:hover     { background: alpha(@sapphire, 0.3); box-shadow: 0 0 8px alpha(@sapphire, 0.6); }
+#pulseaudio:hover { background: alpha(@peach, 0.3);    box-shadow: 0 0 8px alpha(@peach, 0.6); }
+#network:hover    { background: alpha(@blue, 0.3);     box-shadow: 0 0 8px alpha(@blue, 0.6); }
+#bluetooth:hover  { background: alpha(@mauve, 0.3);    box-shadow: 0 0 8px alpha(@mauve, 0.6); }
+#battery:hover    { background: alpha(@green, 0.3);    box-shadow: 0 0 8px alpha(@green, 0.6); }
+
+#pulseaudio.muted,
+#network.disconnected {
+  color: @overlay0;
+  background: alpha(@overlay0, 0.14);
 }
 
 #battery.charging {
-  background-color: #fab387;
+  color: @yellow;
+  background: alpha(@yellow, 0.16);
+}
+
+#battery.warning:not(.charging) {
+  color: @peach;
+  background: alpha(@peach, 0.18);
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f38ba8;
+  color: @crust;
+  background: @red;
   animation-name: blink;
-  animation-duration: 0.5s;
+  animation-duration: 0.6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-#network {
-  background-color: #89b4fa;
-  color: #1e1e2e;
-}
-
-#pulseaudio {
-  background-color: #fab387;
-  color: #1e1e2e;
-}
-
-#bluetooth {
-  background-color: #cba6f7;
-  color: #121e2e;
-}
-
 #tray {
-  background-color: #313244;
-}
-
-#custom-launcher {
-  background-color: #89b4fa;
-  color: #1e1e2e;
-  padding: 0 8px 0 12px;
-  margin: 4px 2px;
-  border-radius: 10px;
-  font-size: 18px;
+  padding: 0 10px 0 6px;
 }
 
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    background: @text;
+    color: @crust;
   }
 }

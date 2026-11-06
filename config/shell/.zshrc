@@ -5,8 +5,8 @@
 [ -d "$HOME/.nix-profile/bin" ] && export PATH="$HOME/.nix-profile/bin:$PATH"
 
 # -- 起動時の表示 --
-figlet -c "Hello!" | lolcat 
-fastfetch
+# figlet -c "Hello!" | lolcat 
+# fastfetch
 
 # -- パス設定 --
 # nix-darwin の /etc/zprofile には path_helper が無く、/etc/paths.d/homebrew が読まれない

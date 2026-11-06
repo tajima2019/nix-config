@@ -1,36 +1,87 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
-  "spacing": 4,
+  "height": 36,
+  "spacing": 8,
+  // 画面端から浮かせる(フローティングバー)
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
 
+  "modules-left": ["group/left"],
+  "modules-center": ["clock"],
+  "modules-right": ["group/right"],
 
-  "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
-  // "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "network", "bluetooth", "battery", "clock", "tray"],
-  
+  // --- 左: ランチャー / ワークスペース / ウィンドウ名 ---
+  "group/left": {
+    "orientation": "horizontal",
+    "modules": ["custom/launcher", "hyprland/workspaces", "hyprland/window"]
+  },
+
+  // --- 右: ステータス類 ---
+  "group/right": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "pulseaudio", "network", "bluetooth", "battery", "tray"]
+  },
+
+  // -- 左端のアイコン --
+  "custom/launcher": {
+    "format": "\uf303 ", // Arch Linuxのロゴ (Nerd Fontが必要)
+    "on-click": "wofi --show drun", // クリックでランチャー起動
+    "tooltip": false
+  },
+
   "hyprland/workspaces": {
     "format": "{name}",
     "on-click": "activate"
   },
 
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 32,
+    "separate-outputs": true,
+    "rewrite": {
+      "": "Desktop"
+    }
+  },
+
+  // --- 時計 (中央) ---
+  "clock": {
+    "format": "󰥔  {0:%H:%M}   <span size=\"small\">󰃭  {0:%m/%d %a}</span>",
+    "format-alt": "󰃭  {0:%Y-%m-%d (%A)}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  // --- CPU / メモリ ---
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "󰍛 {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth": "{icon}\uf294 {volume}%",
     "format-muted": "󰖁 Muted",
     "format-icons": {
-      "headphone": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
+      "headphone": "\uf025",
+      "phone": "\uf095",
+      "portable": "\uf095",
+      "car": "\uf1b9",
+      "default": ["\uf026", "\uf027", "\uf028"]
     },
     "on-click": "pavucontrol" // クリックで音量ミキサーを開く
   },
 
   // --- Wi-Fi設定 ---
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "\uf1eb  {essid}",
     "format-ethernet": "󰈀 Connected",
     "format-disconnected": "⚠ Disconnected",
     "tooltip-format": "{ifname} via {gwaddr}",
@@ -39,10 +90,10 @@
 
   // -- Bluetooth設定 ---
   "bluetooth": {
-    "format": " {status}",
+    "format": "\uf294 {status}",
     "format-disabled": "", // OFFのときは表示しない
-    "format-connected": " {device_alias}", // 接続時はデバイス名を表示
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%", // バッテリー残量があれば表示
+    "format-connected": "\uf294 {device_alias}", // 接続時はデバイス名を表示
+    "format-connected-battery": "\uf294 {device_alias} {device_battery_percentage}%", // バッテリー残量があれば表示
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -57,26 +108,13 @@
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-plugged": " {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-  },
-
-  // --- 時計設定 ---
-  "clock": {
-    "format": " {:%H:%M   %m/%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
   // --- トレイ ---
   "tray": {
-    "icon-size": 24,
+    "icon-size": 20,
     "spacing": 10
-  },
-
-  // -- 左端のアイコン -- 
-  "custom/launcher": {
-    "format": " ",  // Arch Linuxのロゴ (Nerd Fontが必要)
-    "on-click": "wofi --show drun", // クリックでランチャー起動
-    "tooltip": false
   }
 }

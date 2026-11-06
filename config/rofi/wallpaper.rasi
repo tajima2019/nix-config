@@ -1,91 +1,110 @@
-/* ~/.config/rofi/wallpaper.rasi */
+/* ~/.config/rofi/wallpaper.rasi
+ * Catppuccin Mocha 風 / 横長(16:9)サムネイル向けグリッド */
 
 * {
-    /* カラーパレットの設定 */
-    bg-col: rgba(30, 30, 46, 0.7);
-    border-col: rgba(51, 204, 255, 1.0);
-    selected-col: rgba(255, 255, 255, 0.1);
-    fg-col: #cdd6f4;
+    /* カラーパレット */
+    base:       #1e1e2eee;
+    mantle:     #181825ff;
+    crust:      #11111bff;
+    surface0:   #313244ff;
+    surface1:   #45475aff;
+    text:       #cdd6f4ff;
+    subtext:    #a6adc8ff;
+    accent:     #cba6f7ff;   /* mauve */
+    accent-alt: #89b4faff;   /* blue  */
+    clear:      transparent;
 
-    font: "sans-serif 12";
+    font: "JetBrainsMono Nerd Font 11";
+    background-color: transparent;
+    text-color: @text;
 }
 
-/* メインウィンドウの設定 */
+/* ウィンドウ */
 window {
+    location: center;
+    anchor: center;
     width: 70%;
-    background-color: @bg-col;
+    background-color: @base;
     border: 2px;
-    border-color: @border-col;
-    border-radius: 10px;
-    padding: 20px;
+    border-color: @accent;
+    border-radius: 18px;
+    padding: 14px;
 }
 
-/* 内部の余白設定 */
+/* 検索バーなし: グリッドのみ(文字入力での絞り込み自体は内部的に動作する) */
 mainbox {
     background-color: transparent;
-    spacing: 20px;
+    spacing: 12px;
+    children: [ textbox-title, listview ];
 }
 
-/* 検索バー（入力部分） */
-inputbar {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    padding: 10px;
-    children: [ prompt, entry ];
-}
-
-prompt {
+/* タイトル */
+textbox-title {
+    str: "󰸉  Wallpaper Selection";
+    expand: false;
     background-color: transparent;
-    text-color: @border-col;
-    font: "sans-serif bold 12";
-    margin: 0px 10px 0px 0px;
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font Bold 22";
+    horizontal-align: 0.5;
+    padding: 4px 0px 8px 0px;
 }
 
-entry {
-    background-color: transparent;
-    text-color: @fg-col;
-    placeholder: "Search wallpapers...";
-    placeholder-color: rgba(255, 255, 255, 0.3);
-}
-
-/* リスト表示（グリッド）の設定 */
+/* グリッド: 4列 x 3行 = 1ページ12枚 */
 listview {
     background-color: transparent;
-    columns: 5;
+    columns: 4;
     lines: 3;
-    spacing: 15px;
+    spacing: 12px;
     fixed-columns: true;
     flow: horizontal;
+    cycle: true;
+    scrollbar: false;
 }
 
-/* 個々のアイテム（画像＋テキスト） */
+/* 1枚ぶんのカード */
 element {
-    background-color: transparent;
-    text-color: @fg-col;
+    background-color: @mantle;
+    text-color: @subtext;
     orientation: vertical;
-    border-radius: 10px;
-    padding: 15px;
+    children: [ element-icon ];
+    spacing: 0px;
+    padding: 8px;
+    border: 2px;
+    border-color: @clear;      /* 選択時に大きさが変わらないよう透明の枠を確保 */
+    border-radius: 14px;
 }
 
-/* アイコン（サムネイル画像） */
+element alternate.normal,
+element normal.normal {
+    background-color: @mantle;
+}
+
+/* サムネイル */
 element-icon {
-    size: 8em;
+    size: 7.5em;
     horizontal-align: 0.5;
     background-color: transparent;
 }
 
-/* ファイル名のテキスト */
+/* ファイル名(3行を画面に収めるため非表示。出す場合は true に) */
 element-text {
     enabled: false;
     horizontal-align: 0.5;
-    text-color: inherit;
     background-color: transparent;
-    margin: 10px 0px 0px 0px;
+    text-color: inherit;
+    font: "sans-serif 9";
 }
 
-/* 選択されているアイテムの見た目 */
-element selected {
-    background-color: @selected-col;
-    border: 2px solid;
-    border-color: @border-col;
+/* ホバー */
+element normal.active,
+element alternate.active {
+    text-color: @accent-alt;
+}
+
+/* 選択中 */
+element selected.normal,
+element selected.active {
+    background-color: @surface0;
+    text-color: @text;
+    border-color: @accent;
 }
