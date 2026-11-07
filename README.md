@@ -2,6 +2,8 @@
 
 macOS (nix-darwin) と Linux (home-manager) を1つの flake で管理する設定。
 
+![Wallpaper Selection](docs/wallpaper-selection.png)
+
 ## Setup
 
 ```bash
