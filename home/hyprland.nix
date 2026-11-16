@@ -4,6 +4,8 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink "${repo}/config/${path}";
 in
 {
+  home.packages = [ pkgs.brightnessctl ];
+
   xdg.configFile = {
     "hypr".source = link "hypr";
     "waybar".source = link "waybar";
