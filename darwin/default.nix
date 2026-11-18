@@ -3,7 +3,19 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
 
+  # sheldonのビルドがlibgit2を見つけられず失敗するバグをnixpkgs側で修正する
+  # (buildInputsにlibgit2が無いため、pkg-configで検出できていない)
+  nixpkgs.overlays = [
+    (final: prev: {
+      sheldon = prev.sheldon.overrideAttrs (old: {
+        buildInputs = (old.buildInputs or [ ]) ++ [ final.libgit2 ];
+      });
+    })
+  ];
+
   nix.enable = false;
+
+  services.tailscale.enable = true;
 
   system.stateVersion = 7;
   system.primaryUser = username;

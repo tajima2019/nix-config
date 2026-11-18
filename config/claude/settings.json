@@ -1,12 +1,13 @@
 {
-  "model": "sonnet",
+  "model": "claude-fable-5-2",
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "academic-research-skills@academic-research-skills": true,
     "typescript-lsp@claude-plugins-official": true,
     "yomiyasu@yomiyasu": true,
-    "slidev@cc-rhuss-marketplace": true
+    "slidev@cc-rhuss-marketplace": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "academic-research-skills": {

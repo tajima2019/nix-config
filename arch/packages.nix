@@ -24,6 +24,9 @@
     # container
     "docker" "docker-compose"
 
+    # vpn
+    "tailscale"
+
     # languages
     "nodejs" "npm" "go" "python" "python-pip" "python-pynvim" "typst"
   ];

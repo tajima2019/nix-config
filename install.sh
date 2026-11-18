@@ -82,6 +82,17 @@ Linux)
           sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
       fi
 
+      echo "==> Tailscale apt repository"
+      if [ ! -f /etc/apt/sources.list.d/tailscale.list ]; then
+        # tailscale-keyring.listの内容はsigned-byに/usr/share/keyrings/tailscale-archive-keyring.gpgを
+        # 固定で参照するため、鍵も同じパスに置く
+        sudo install -m 0755 -d /usr/share/keyrings
+        curl -fsSL "https://pkgs.tailscale.com/stable/${ID}/${VERSION_CODENAME}.noarmor.gpg" |
+          sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg > /dev/null
+        curl -fsSL "https://pkgs.tailscale.com/stable/${ID}/${VERSION_CODENAME}.tailscale-keyring.list" |
+          sudo tee /etc/apt/sources.list.d/tailscale.list > /dev/null
+      fi
+
       read -ra APT_PKGS <<< "$(nix eval --raw -f ubuntu/packages.nix --apply 'p: builtins.concatStringsSep " " p.apt')"
 
       [ ${#APT_PKGS[@]} -gt 0 ] || {
@@ -121,6 +132,12 @@ Linux)
     sudo usermod -aG docker "$(whoami)"
     sudo systemctl enable docker
     sudo systemctl start docker || echo "WARN: docker.service failed to start (may need a reboot, e.g. after a kernel update). Check: systemctl status docker"
+  fi
+
+  echo "==> tailscale"
+  if command -v tailscaled > /dev/null 2>&1; then
+    sudo systemctl enable --now tailscaled
+    echo "NOTE: 'sudo tailscale up' でログイン・ネットワーク参加してください"
   fi
 
   echo "==> default shell"
