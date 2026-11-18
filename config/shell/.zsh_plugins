@@ -8,8 +8,11 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
 
-# Sheldon の初期化 
+# Sheldon の初期化
 eval "$(sheldon source)"
+
+# nvm(起動時のnvm_autoが重いのでzsh-deferで非同期に読み込む)
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && zsh-defer source "/opt/homebrew/opt/nvm/nvm.sh"
 
 # 存在するパスを見つけて読み込む関数
 source_if_exists() {
@@ -24,7 +27,14 @@ source_if_exists() {
 source_if_exists "${autosuggest_paths[@]}"
 source_if_exists "${syntax_highlight_paths[@]}"
 
-autoload -Uz compinit && compinit
+# 補完キャッシュ(.zcompdump)が既にあればチェック(compaudit)とdump再生成を省略して高速化する
+# 新しいツールの補完を反映したい時は `rm ~/.zcompdump*` で手動更新
+autoload -Uz compinit
+if [[ -f "${ZDOTDIR:-$HOME}/.zcompdump" ]]; then
+  compinit -C
+else
+  compinit
+fi
 
 # zsh-history-substring-search のキーバインド設定
 bindkey '^[[A' history-substring-search-up
