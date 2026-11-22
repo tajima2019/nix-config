@@ -11,9 +11,6 @@ setopt share_history
 # Sheldon の初期化
 eval "$(sheldon source)"
 
-# nvm(起動時のnvm_autoが重いのでzsh-deferで非同期に読み込む)
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && zsh-defer source "/opt/homebrew/opt/nvm/nvm.sh"
-
 # 存在するパスを見つけて読み込む関数
 source_if_exists() {
   for p in "$@"; do

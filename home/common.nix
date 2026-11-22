@@ -43,6 +43,7 @@ in
     herdr
     claude-code
     qwen-code
+    pi-coding-agent
 
     # クラウド
     awscli2

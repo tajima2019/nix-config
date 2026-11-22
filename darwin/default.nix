@@ -31,7 +31,6 @@
     brews = [
       # nixpkgs に無い
       "cloudflared"
-      "nvm"
       "pnpm"
     ];
 

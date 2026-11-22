@@ -12,7 +12,6 @@
 # nix-darwin の /etc/zprofile には path_helper が無く、/etc/paths.d/homebrew が読まれない
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/go/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
 
 # -- エディタの設定 --
 export EDITOR='nvim'
