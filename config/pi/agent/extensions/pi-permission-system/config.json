@@ -1,0 +1,19 @@
+{
+  "permission": {
+    "*": "allow",
+    "path": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "~/.pi/agent/auth.json": "deny"
+    },
+    "bash": {
+      "*": "allow",
+      "rm *": "ask",
+      "git push *": "ask",
+      "git reset --hard*": "ask",
+      "sudo *": "ask"
+    }
+  }
+}

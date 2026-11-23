@@ -1,0 +1,33 @@
+{
+  "theme": "custom-night",
+  "lastChangelogVersion": "1.5.2",
+  "defaultProvider": "ollama",
+  "defaultModel": "qwen3.8:27b",
+  "enabledModels": [
+    "claude-bridge/claude-opus-5-5",
+    "claude-bridge/claude-fable-5-2",
+    "claude-bridge/claude-haiku-5-5",
+    "claude-bridge/claude-sonnet-5-5",
+    "qwen3.8:27b"
+  ],
+  "packages": [
+    "npm:@gotgenes/pi-permission-system@42.2.0",
+    "npm:pi-death-loop-guard@0.1.2",
+    "npm:@nredd/pi-plan-mode@0.59.3-nredd.4",
+    "npm:@tintinweb/pi-subagents@0.26.2",
+    "npm:pi-web-access@0.48.0",
+    "npm:billion-context",
+    "npm:openwiki",
+    "npm:pi-claude-bridge",
+    "npm:pi-better-render",
+    "npm:pi-lens",
+    "npm:pi-simplify",
+    "npm:@juicesharp/rpiv-ask-user-question"
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:@gotgenes/pi-permission-system@42.2.0\",\"scope\":\"user\"}": "42.2.0",
+    "{\"source\":\"npm:@tintinweb/pi-subagents@0.26.2\",\"scope\":\"user\"}": "0.26.2",
+    "{\"source\":\"npm:pi-web-access@0.48.0\",\"scope\":\"user\"}": "0.48.0",
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.5.2"
+  }
+}

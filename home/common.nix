@@ -1,4 +1,9 @@
-{ config, pkgs, username, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 let
   repo = "${config.home.homeDirectory}/nix-config";
   link = path: config.lib.file.mkOutOfStoreSymlink "${repo}/config/${path}";
@@ -33,7 +38,7 @@ in
     tree-sitter
     uv
     nodejs_22
-    
+
     # ツール
     navi
     nb
@@ -77,16 +82,24 @@ in
   # ~/ に置く設定
   home.file = {
     # 頻繁に編集する / ツールが書き込む
-    ".zshrc".source         = link "shell/.zshrc";
-    ".zsh_prompt".source    = link "shell/.zsh_prompt";
-    ".zsh_plugins".source   = link "shell/.zsh_plugins";
+    ".zshrc".source = link "shell/.zshrc";
+    ".zsh_prompt".source = link "shell/.zsh_prompt";
+    ".zsh_plugins".source = link "shell/.zsh_plugins";
     ".zsh_functions".source = link "shell/.zsh_functions";
-    ".nbrc".source          = link "nb/.nbrc";
+    ".nbrc".source = link "nb/.nbrc";
 
     # out-of-store: Claude Code 自身が /model や plugin 有効化で書き換える
     ".claude/settings.json".source = link "claude/settings.json";
 
-    # 安定していて書き込まれない
+    # pi
+    ".pi/agent/settings.json".source = link "pi/agent/settings.json";
+    ".pi/agent/models.json".source = link "pi/agent/models.json";
+    ".pi/agent/mcp.json".source = link "pi/agent/mcp.json";
+    ".pi/agent/AGENTS.md".source = link "pi/agent/AGENTS.md";
+    ".pi/agent/APPEND_SYSTEM.md".source = link "pi/agent/APPEND_SYSTEM.md";
+    ".pi/agent/themes".source = link "pi/agent/themes";
+    ".pi/agent/extensions".source = link "pi/agent/extensions";
+
     ".hushlogin".source = ../config/.hushlogin;
   };
 

@@ -1,0 +1,2 @@
+# pi-permission-system がリンク先(このディレクトリ)にログを書くため除外
+extensions/pi-permission-system/logs/
