@@ -1,0 +1,46 @@
+{
+  "enabled": true,
+  "header": true,
+  "inlineFooter": false,
+  "copyButtons": true,
+  "settingsLanguage": "en",
+  "cursorStyle": "block",
+  "icons": {
+    "mode": "auto"
+  },
+  "footerSegments": {
+    "cwd": true,
+    "hostname": false,
+    "sessionName": false,
+    "gitBranch": true,
+    "gitStatus": true,
+    "gitCommit": false,
+    "runtime": false,
+    "context": true,
+    "contextBar": false,
+    "tokens": true,
+    "cost": true,
+    "liveTps": false,
+    "extensionSegments": false,
+    "extensionStatuses": false,
+    "capitalizeProviderName": true,
+    "nerdIconSpacing": false
+  },
+  "telemetry": {
+    "enabled": true,
+    "tps": false,
+    "ttft": false,
+    "duration": false,
+    "tokens": true,
+    "stalls": false,
+    "cost": true
+  },
+  "thinkingPeek": {
+    "lines": 1
+  },
+  "toolView": {
+    "mode": "native",
+    "extensionTools": false,
+    "exclude": []
+  }
+}

@@ -22,12 +22,15 @@
     "npm:pi-better-render",
     "npm:pi-lens",
     "npm:pi-simplify",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-open-tui"
   ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:@gotgenes/pi-permission-system@42.2.0\",\"scope\":\"user\"}": "42.2.0",
     "{\"source\":\"npm:@tintinweb/pi-subagents@0.26.2\",\"scope\":\"user\"}": "0.26.2",
     "{\"source\":\"npm:pi-web-access@0.48.0\",\"scope\":\"user\"}": "0.48.0",
-    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.5.2"
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.5.2",
+    "{\"source\":\"npm:awesome-pi-themes\",\"scope\":\"user\"}": "1.2.19",
+    "{\"source\":\"npm:pi-open-tui\",\"scope\":\"user\"}": "0.4.7"
   }
 }

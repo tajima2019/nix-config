@@ -99,6 +99,7 @@ in
     ".pi/agent/APPEND_SYSTEM.md".source = link "pi/agent/APPEND_SYSTEM.md";
     ".pi/agent/themes".source = link "pi/agent/themes";
     ".pi/agent/extensions".source = link "pi/agent/extensions";
+    ".pi/agent/open-tui.json".source = link "pi/agent/open-tui.json";
 
     ".hushlogin".source = ../config/.hushlogin;
   };
