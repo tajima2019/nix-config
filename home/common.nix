@@ -59,6 +59,7 @@ in
     gopls
     lua-language-server
     typescript-language-server
+    tailwindcss-language-server
     pyright
     yaml-language-server
     vscode-langservers-extracted
